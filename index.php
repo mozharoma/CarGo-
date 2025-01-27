@@ -87,6 +87,39 @@
 				</div>
 			</div>
 		</section>
+		<section class="goods">
+			<img src="images\Best-expirence-audi-car.png" alt="Audi-car-image">
+			<div class="goods-info">
+				<h2 class="goods-heading">Feel the best expirence
+					with our rental deals</h2>
+				<ul class="goods-list">
+					<li class="goods-item">
+						<div class="goods-item-image">
+							<img src="icons\Handshake.svg" alt="">
+						</div>
+						<h3 class="goods-item-heading">Deals for every budget</h3>
+						<p class="goods-item-info">Looking for a car rental for your next trip?
+							Here are some tips to help you find</p>
+					</li>
+					<li class="goods-item">
+						<div class="goods-item-image">
+							<img src="icons\Money.svg" alt="">
+						</div>
+						<h3 class="goods-item-heading">Best price guaranted</h3>
+						<p class="goods-item-info">Looking for a car rental for your next trip?
+							Here are some tips to help you find</p>
+					</li>
+					<li class="goods-item">
+						<div class="goods-item-image">
+							<img src="icons\Settings.svg" alt="">
+						</div>
+						<h3 class="goods-item-heading">24/7 Support</h3>
+						<p class="goods-item-info">Looking for a car rental for your next trip?
+							Here are some tips to help you find</p>
+					</li>
+				</ul>
+			</div>
+		</section>
 	</main>
 	<script src="index.js"></script>
 </body>
