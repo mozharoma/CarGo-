@@ -1,0 +1,775 @@
+@font-face {
+	font-family: 'Poppins';
+	src: url('./Fonts/Poppins-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('./Fonts/Poppins-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('./Fonts/Poppins-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Achivo Black';
+	src: url('./Fonts/ArchivoBlack-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'PaluiSPDemoBold';
+	src: url('./Fonts/PaluiSPDemoBold.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+	padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+	margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	dl):where([class]) {
+	margin-block: 0;
+}
+
+:where(dd[class]) {
+	margin-left: 0;
+}
+
+:where(fieldset[class]) {
+	margin-left: 0;
+	padding: 0;
+	border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+	list-style: none;
+}
+
+:where(address[class]) {
+	font-style: normal;
+}
+
+/**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+p {
+	--paragraphMarginBottom: 24px;
+
+	margin-block: 0;
+}
+
+/**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+p:where(:not([class]):not(:last-child)) {
+	margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+   Упрощаем работу с изображениями и видео
+  */
+img,
+video {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+	font: inherit;
+}
+
+html {
+	/**
+	 Пригодится в большинстве ситуаций
+	 (когда, например, нужно будет "прижать" футер к низу сайта)
+	*/
+	height: 100%;
+	/**
+	 Убираем скачок интерфейса по горизонтали
+	 при появлении / исчезновении скроллбара
+	*/
+	scrollbar-gutter: stable;
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+	scroll-behavior: smooth;
+}
+
+body {
+	/**
+	 Пригодится в большинстве ситуаций
+	 (когда, например, нужно будет "прижать" футер к низу сайта)
+	*/
+	min-height: 100%;
+	/**
+	 Унифицированный интерлиньяж
+	*/
+	line-height: 1.5;
+}
+
+/**
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
+a:where([class]) {
+	display: inline-flex;
+}
+
+/**
+   Курсор-рука при наведении на элемент
+  */
+button,
+label {
+	cursor: pointer;
+}
+
+/**
+   Приводим к единому цвету svg-элементы
+  */
+[fill] {
+	fill: currentColor
+}
+
+[stroke] {
+	stroke: currentColor
+}
+
+/**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+svg * {
+	transition-property: fill, stroke;
+}
+
+/**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+:where(table) {
+	border-collapse: collapse;
+	border-color: currentColor;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--base-font: "Poppins";
+	--base-font-color: #FFFFFF;
+	--base-black-color: #000106;
+	--grey-color: #282B36;
+	--border-grey-color: #9E9E9E;
+	--grey-color-alternate: #272B36;
+	--circle-grey-color: #2E3341;
+	--transition-delay: 0.2s;
+}
+
+body {
+	font-family: var(--base-font);
+	background-color: var(--base-black-color);
+	color: var(--base-font-color);
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
+.header {
+	padding-inline: 7.708vw;
+	padding-block: 28px;
+	position: sticky;
+	background-color: hsla(228, 100%, 1%, 0.9);
+	position: fixed;
+	width: 100%;
+}
+
+.header-nav-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 20px;
+
+}
+
+.header-logo {}
+
+.header-nav-list {
+	display: flex;
+	column-gap: 3.854vw;
+}
+
+.header-nav-item {
+	white-space: nowrap;
+	position: relative;
+}
+
+.header-nav-link:before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: -20px;
+	left: -20px;
+	right: -20px;
+	bottom: -20px;
+}
+
+.header-nav-item:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--base-font-color);
+	transition: width 0.3s;
+	line-height: 1;
+}
+
+.header-nav-item:hover:after,
+.header-nav-item:focus:after {
+	width: 100%;
+	outline: 0;
+}
+
+/*Стилизация Present Секции*/
+.present {
+	padding-inline: 7.708vw;
+	background-size: contain;
+	background-position: right -120px;
+	background-repeat: no-repeat;
+	background-image: url('./images/2013_audi_a3_59_1920x1080-fotor-20250122175211.png');
+	padding-bottom: 7.889vh;
+	padding-top: 18vh;
+}
+
+.present-header {
+	font-family: 'Achivo Black';
+	font-size: 4rem;
+	max-width: 766px;
+	margin-bottom: 4.907vh;
+}
+
+.present-subtitle {
+	font-size: 1.25rem;
+	max-width: 577px;
+	margin-bottom: 3.611vh;
+}
+
+.present-actions-group {
+	display: flex;
+	column-gap: 52px;
+	margin-bottom: 2.559vw;
+}
+
+.anchor-link {}
+
+.present-actions-rent-button {
+	display: inline-block;
+	background-color: var(--grey-color);
+	border-radius: 11px;
+	font-size: 1.25rem;
+	padding-block: 15px;
+	padding-inline: 50px;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+}
+
+.present-learn-button {
+	display: inline-block;
+	padding-block: 15px;
+	padding-inline: 50px;
+	background-color: transparent;
+	border-radius: 11px;
+	border: 2px solid var(--grey-color);
+	font-size: 1.25rem;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+}
+
+.present-actions-rent-button:hover {
+	transform: scale(0.95);
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+	box-shadow: 1px 1px 20px 1px var(--grey-color);
+}
+
+.present-learn-button:hover {
+	transform: scale(0.95);
+	box-shadow: 1px 1px 20px 1px var(--grey-color);
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+}
+
+
+.present-rent-form {
+	display: flex;
+	background-color: var(--grey-color);
+	column-gap: 3.542vw;
+	margin: 0 auto;
+	justify-content: space-between;
+	max-width: 1064px;
+	align-items: flex-end;
+	border-radius: 12px;
+	padding: 27px;
+}
+
+.present-rent-form label {
+	margin-bottom: 15px;
+	font-size: 1.125rem;
+}
+
+.form-rent-place {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-rent-place input {
+	background-color: transparent;
+	border: 1px solid var(--border-grey-color);
+	border-radius: 11px;
+	padding-block: 10px;
+	font-size: 1.125rem;
+	color: var(--base-font-color);
+	background-image: url('icons/Location.svg');
+	background-repeat: no-repeat;
+	background-position: 5px 7px;
+	padding-left: 45px;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay), border var(--transition-delay);
+	box-shadow: 1px 1px 10px transparent;
+}
+
+.form-rent-place input::placeholder {
+	color: var(--border-grey-color);
+}
+
+.form-rent-place input:hover {
+	border: 1px solid var(--base-font-color);
+	transition: border var(--transition-delay);
+}
+
+.form-rent-place input:focus-visible {
+	outline: none;
+	box-shadow: 1px 1px 10px #00000079, 1px 1px 10px #00000079 inset;
+	transform: scale(1.01);
+	transition: box-shadow var(--transition-delay), transform var(--transition-delay);
+}
+
+.form-pickup-date {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-pickup-date input,
+.form-return-date input {
+	font-family: inherit;
+	font-size: 1.125rem;
+	color: var(--base-font-color);
+	background-color: transparent;
+	border: 1px solid var(--border-grey-color);
+	border-radius: 11px;
+	padding-block: 10px;
+	position: relative;
+	background-image: url('icons/Calendar.svg');
+	background-repeat: no-repeat;
+	background-position: 5px 7px;
+	padding-left: 45px;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay), border var(--transition-delay);
+}
+
+.form-pickup-date input:hover,
+.form-return-date input:hover {
+	border: 1px solid var(--base-font-color);
+	transition: border var(--transition-delay);
+}
+
+.form-pickup-date input:focus-visible,
+.form-return-date input:focus-visible {
+	outline: none;
+	box-shadow: 1px 1px 10px #00000079, 1px 1px 10px #00000079 inset;
+	transform: scale(1.01);
+	transition: box-shadow var(--transition-delay), transform var(--transition-delay);
+}
+
+.form-return-date {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-search-button {
+	display: flex;
+	flex-direction: row-reverse;
+	background-color: var(--base-black-color);
+	border: 0;
+	color: inherit;
+	align-items: center;
+	padding-block: 13px;
+	border-radius: 11px;
+	padding-inline: 45px;
+	column-gap: 18px;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+}
+
+.form-search-button:hover {
+	transform: scale(0.95);
+	box-shadow: 1px 1px 10px 2px #00000079;
+	transition: transform var(--transition-delay), box-shadow var(--transition-delay);
+}
+
+::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.burger-button {
+	background-color: transparent;
+	border: 0;
+	display: none;
+}
+
+/*Адаптация Header*/
+@media(max-width:1589px) {
+	.present {
+		padding-inline: 7.708vw;
+		background-size: contain;
+		background-position: right -120px;
+		background-repeat: no-repeat;
+		background-image: url('./images/2013_audi_a3_59_1920x1080-fotor-20250122175211.png');
+	}
+}
+
+@media (max-width: 1224px) {
+	.present {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-position: center;
+		background-size: cover;
+	}
+
+	.present-header {
+		font-size: 3rem;
+		text-align: center;
+	}
+
+	.present-subtitle {
+		font-size: 1rem;
+	}
+
+	.burger-button {
+		display: block;
+		order: 1;
+		z-index: 1000;
+	}
+
+	.header-nav-list.active {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		font-size: 1.5rem;
+		row-gap: 20px;
+		padding: 20px;
+		width: 30%;
+		height: 100%;
+	}
+
+	.header-nav-list {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		right: 0;
+		background-color: var(--grey-color);
+		z-index: 400;
+	}
+
+	.header-nav-menu {
+		justify-content: space-between;
+	}
+}
+
+@media (max-width: 1136px) {
+	.present {
+		padding-block: 20vh;
+	}
+
+	.present-rent-form {
+		flex-wrap: wrap;
+		column-gap: 20px;
+		row-gap: 20px;
+	}
+
+	.form-rent-place {
+		width: 100%;
+	}
+}
+
+@media (max-width:1114px) {
+	.present {
+		background-image: none;
+	}
+}
+
+@media (max-width:916px) {
+	.header-nav-list.active {
+		width: 45%;
+		font-size: 1.2rem;
+	}
+
+	.header-nav-list {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		right: 0;
+		background-color: var(--grey-color);
+		z-index: 400;
+	}
+}
+
+@media (max-width:754px) {
+	.present-header {
+		font-size: 2rem;
+	}
+
+	.present-actions-group {
+		margin-bottom: 30px;
+
+	}
+
+	.form-pickup-date {
+		width: 45%;
+	}
+
+	.form-return-date {
+		width: 45%;
+	}
+
+	.form-search-button {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+@media (max-width:550px) {
+	.present-actions-group {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		width: 100%;
+	}
+
+	.header-nav-list.active {
+		font-size: 1rem;
+	}
+
+	.present-actions-group a {
+		display: inline-flex;
+		justify-content: center;
+	}
+
+	.form-pickup-date,
+	.form-return-date {
+		width: 100%;
+	}
+}
+
+/*Стилизация слайдера*/
+.slider {
+	background-color: var(--base-font-color);
+	padding-inline: 7.708vw;
+	padding-block: 3.556vh;
+}
+
+.slider>div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 10px;
+}
+
+.slider>div img {
+	width: 6.556vw;
+}
+
+.slider>div img:last-child {
+	max-width: 102px;
+}
+
+.slider>div img:nth-child(7) {
+	max-width: 152px;
+}
+
+.slider>div img:nth-child(6) {
+	max-width: 152px;
+}
+
+@media(max-width:860px) {
+	.slider>div img {
+		width: 7.556vw;
+	}
+}
+
+/*Стилизация or steps*/
+.steps {
+	background-color: var(--grey-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-block: 13.889vh;
+	padding-inline: 7.76vw;
+}
+
+.steps-subtitle {
+	font-size: 1.5rem;
+	margin-bottom: 16px;
+}
+
+.steps-heading {
+	font-size: 2.125rem;
+	font-weight: 500;
+	margin-bottom: 3.646vw;
+}
+
+.steps-card-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 50px;
+}
+
+.steps-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 2px solid var(--border-grey-color);
+	padding-inline: 3.438vw;
+	padding-block: 50px;
+	border-radius: 40px;
+	flex: 1;
+}
+
+.step-image {
+	background-color: #2E3341;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	max-width: 505px;
+	margin-bottom: 30px;
+}
+
+.step-image>img {
+	width: 52px;
+	height: 52px;
+
+}
+
+.steps-card:last-child .step-image {
+	padding: 26px;
+}
+
+.steps-card:last-child .step-image img {
+	width: 40px;
+	height: 40px;
+}
+
+.steps-card:first-child .step-image img {
+	position: relative;
+	top: 7px;
+}
+
+.steps-card:nth-child(2) .step-image img {
+	position: relative;
+	right: 3px;
+	top: 2px;
+
+}
+
+.step-heading {
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.step-subtitle {
+	text-align: center;
+}
