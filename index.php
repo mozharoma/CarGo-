@@ -1,3 +1,6 @@
+<?
+require_once 'db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,6 +122,40 @@
 					</li>
 				</ul>
 			</div>
+		</section>
+		<section class="catalog">
+			<span class="catalog-subtitle">Best Offer</span>
+			<h4 class="catalog-heading">Our Featured Car</h4>
+			<div class="catalog-cards-container">
+				<?php
+				$sql = "SELECT id, car_mark, car_day_price, car_type, car_seats, car_dours, car_climate, car_image FROM cars";
+				$result = $conn->query($sql);
+				if ($result->num_rows > 0) {
+					while ($row = $result->fetch_assoc()) {
+						?>
+						<?php
+						echo '<div class="catalog-card">';
+						echo '<img src="' . $row["car_image"] . '" alt="' . $row["car_mark"] . '" class="catalog-card-image">';
+						echo '<div class="catalog-card-info">';
+						echo '<p class="catalog-card-name">' . $row["car_mark"] . '</p>';
+						echo '<p class="catalog-card-price">Starting at ' . $row["car_day_price"] . '/ Day</p>';
+						echo '<div class="catalog-card-specifications">';
+						echo '<div class="catalog-card-type"> <img src="icons\Car.svg" alt=""> ' . $row["car_type"] . '</div>';
+						echo '<div class="catalog-card-type"> <img src="icons\Seats.svg" alt=""> ' . $row["car_seats"] . ' seats</div>';
+						echo '<div class="catalog-card-type"> <img src="icons\Doors.svg" alt=""> ' . $row["car_dours"] . ' doors</div>';
+						echo '<div class="catalog-card-type"> <img src="icons\Snowflake.svg" alt=""> ' . $row["car_climate"] . '</div>';
+						echo '</div>';
+						echo '</div>';
+						echo '<div class="catalog-card-buttons">';
+						echo '<button class="catalog-card-details">Details</button>';
+						echo '<button class="catalog-card-book">Book</button>';
+						echo '</div>';
+						echo '</div>';
+					}
+				}
+				?>
+			</div>
+			<button class="catalog-all-view-button" type="button">View All Cars</button>
 		</section>
 	</main>
 	<script src="index.js"></script>

@@ -235,9 +235,10 @@ svg * {
 
 :root {
 	--base-font: "Poppins";
-	--base-font-color: #FFFFFF;
+	--base-font-color: #e4dfdf;
 	--base-black-color: #000106;
 	--grey-color: #282B36;
+	--card-bgcolor: #2C334F;
 	--border-grey-color: #9E9E9E;
 	--grey-color-alternate: #272B36;
 	--circle-grey-color: #2E3341;
@@ -952,3 +953,115 @@ a:focus {
 		grid-column: 1;
 	}
 }
+
+/*Стилизация каталога*/
+.catalog {
+	background-color: #212533;
+	padding-inline: 7.708vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.catalog-subtitle {}
+
+.catalog-heading {}
+
+.catalog-cards-container {
+	display: grid;
+	grid-template-columns: repeat(3, auto);
+	gap: 33px;
+}
+
+.catalog-card {
+	border-radius: 40px;
+	background-color: var(--card-bgcolor);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+	padding-inline: 10px;
+}
+
+.catalog-card-image {
+	width: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.catalog-card-info {
+	font-size: 1.5rem;
+	flex-grow: 1;
+	flex-shrink: 1;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	justify-content: center;
+}
+
+.catalog-card-name::after,
+.catalog-card-name::before {
+	content: "—";
+	padding-inline: 20px;
+}
+
+.catalog-card-price {}
+
+
+.catalog-card-specifications {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	font-size: 1rem;
+	gap: 20px 15px;
+	align-self: center;
+	margin-bottom: 65px;
+}
+
+.catalog-card-specifications>div {
+	display: flex;
+	flex-direction: row;
+}
+
+.catalog-card-specifications>div img {
+	width: 25px;
+	margin-right: 14px;
+}
+
+.catalog-card-type {}
+
+.catalog-card-buttons {
+	font-size: 1.5rem;
+	flex-grow: 0;
+	flex-shrink: 0;
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(2, auto);
+	padding-inline: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.catalog-card-buttons>button {
+	border: 1px solid var(--border-grey-color);
+	color: var(--base-font-color);
+	padding-block: 5px;
+}
+
+.catalog-card-details {
+	font-size: inherit;
+	background-color: #2C334F;
+	border-radius: 0 0 0 40px;
+}
+
+.catalog-card-book {
+	font-size: inherit;
+	background-color: #181C2A;
+	color: var(--base-font-color);
+	border-radius: 0 0 40px 0;
+}
+
+.catalog-all-view-button {}
