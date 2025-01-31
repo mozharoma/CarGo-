@@ -727,6 +727,13 @@ a:focus {
 	border-radius: 40px;
 	flex: 1;
 	height: 100%;
+	transition: box-shadow var(--transition-delay), transform var(--transition-delay);
+}
+
+.steps-card:hover {
+	box-shadow: 0px 0px 10px 10px #5d5b5b56;
+	transform: translate3d(-10px, -10px, 0);
+	transition: box-shadow var(--transition-delay), transform var(--transition-delay);
 }
 
 .step-image {
@@ -1065,11 +1072,28 @@ a:focus {
 	border-radius: 0 0 0 40px;
 }
 
+.catalog-card-details:hover {
+	background-color: #434b6c;
+}
+
+.catalog-card-details:active {
+	background-color: #7a809d;
+}
+
+
 .catalog-card-book {
 	font-size: inherit;
 	background-color: #181C2A;
 	color: var(--base-font-color);
 	border-radius: 0 0 40px 0;
+}
+
+.catalog-card-book:hover {
+	background-color: #3c435a;
+}
+
+.catalog-card-book:active {
+	background-color: #5d6479;
 }
 
 .catalog-all-view-button {
@@ -1079,6 +1103,13 @@ a:focus {
 	color: var(--base-font-color);
 	padding: 10px 25px;
 	font-size: 1.125rem;
+	transition: all var(--transition-delay);
+}
+
+.catalog-all-view-button:hover {
+	transform: scale(1.05);
+	transition: all var(--transition-delay);
+	box-shadow: 0px 0px 10px 5px #303549;
 }
 
 /*Адаптация catalog*/
@@ -1174,4 +1205,73 @@ a:focus {
 
 .hidden {
 	display: none;
+}
+
+/*Стилизация reviews*/
+.reviews {
+	background-color: #3D3E43;
+	display: flex;
+	flex-direction: row;
+	column-gap: 100px;
+	padding-block: 11.741vh;
+	padding-inline: 7.708vw;
+	align-items: center;
+
+}
+
+.reviews-info {
+	max-width: 640px;
+}
+
+.reviews-heading {
+	font-size: 1.5rem;
+	margin-bottom: 11px;
+}
+
+.reviews-subtitle {
+	font-size: 1rem;
+	margin-bottom: 100px;
+}
+
+.reviews-text {
+	width: 80%;
+	display: inline-flex;
+}
+
+.reviews-text::before {
+	content: "❝";
+	font-size: 7rem;
+	display: block;
+	position: relative;
+	bottom: 100px;
+	left: 0;
+}
+
+.reviews-text::after {
+	content: "❞";
+	font-size: 7rem;
+	display: block;
+	position: relative;
+	bottom: -90px;
+	right: 0;
+
+}
+
+.reviews-person {}
+
+.reviews-rating {
+	display: flex;
+	flex-direction: row;
+}
+
+.reviews-count {}
+
+.reviews-user {}
+
+.user-photo {}
+
+.user-name {}
+
+.reviews-img {
+	align-self: center;
 }

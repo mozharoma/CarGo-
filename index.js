@@ -30,6 +30,6 @@ document.getElementById('toggle-button').addEventListener('click', function () {
 		for (let i = allCards.length - 3; i < allCards.length; i++) {
 			allCards[i].classList.add('hidden');
 		}
-		button.textContent = 'View All';
+		button.textContent = 'View All Cars';
 	}
 });

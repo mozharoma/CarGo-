@@ -158,6 +158,33 @@ require_once 'db.php';
 			</div>
 			<button class="catalog-all-view-button" id="toggle-button" type="button">View All Cars</button>
 		</section>
+		<section class="reviews">
+			<div class="reviews-info">
+				<h3 class="reviews-heading">Our client`s Reviews & Testimonials</h3>
+				<h4 class="reviews-subtitle">The majority of our users tell us that readable content distracts readers The majority of our users tell us that readable</h4>
+				<p class="reviews-text">There are amazing people working here who are down-to-earth and willing to work with anyone! Their priority is to take care of their own and make sure you're satisfied! is to take care of their own and make sure you're satisfied</p>
+				<div class="reviews-person">
+					<div class="reviews-rating">
+						<img src="icons/Star.svg" alt="">
+						<img src="icons/Star.svg" alt="">
+						<img src="icons/Star.svg" alt="">
+						<img src="icons/Star.svg" alt="">
+						<img src="icons/Star.svg" alt="">
+						<span class="reviews-count">5.0</span>
+					</div>
+					<div class="reviews-user">
+						<span class="user-photo">M</span>
+						<div class="user-name">
+							<span>
+								Mark Luise
+							</span>
+							<span>CEO Gobabu.com</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="images\Volvo-reviews-car.png" alt="" class="reviews-img">
+		</section>
 	</main>
 	<script src="index.js"></script>
 </body>
