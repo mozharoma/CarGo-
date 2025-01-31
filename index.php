@@ -134,7 +134,7 @@ require_once 'db.php';
 					while ($row = $result->fetch_assoc()) {
 						?>
 						<?php
-						echo '<div class="catalog-card">';
+						echo '<div class="catalog-card ' . ($row["id"] >= count($row) - 1 ? 'hidden' : '') . '">';
 						echo '<img src="' . $row["car_image"] . '" alt="' . $row["car_mark"] . '" class="catalog-card-image">';
 						echo '<div class="catalog-card-info">';
 						echo '<p class="catalog-card-name">' . $row["car_mark"] . '</p>';
@@ -149,13 +149,14 @@ require_once 'db.php';
 						echo '<div class="catalog-card-buttons">';
 						echo '<button class="catalog-card-details">Details</button>';
 						echo '<button class="catalog-card-book">Book</button>';
+						echo '<input/ value="' . $row["id"] . '" type="hidden">';
 						echo '</div>';
 						echo '</div>';
 					}
 				}
 				?>
 			</div>
-			<button class="catalog-all-view-button" type="button">View All Cars</button>
+			<button class="catalog-all-view-button" id="toggle-button" type="button">View All Cars</button>
 		</section>
 	</main>
 	<script src="index.js"></script>

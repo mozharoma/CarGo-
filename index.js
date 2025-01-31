@@ -14,3 +14,22 @@ const formattedDate = `${yyyy}-${mm}-${dd}`;
 
 datePick.value = formattedDate;
 dateReturn.value = formattedDate;
+
+
+document.getElementById('toggle-button').addEventListener('click', function () {
+	const hiddenCards = document.querySelectorAll('.catalog-card.hidden');
+	const button = this;
+
+	if (hiddenCards.length > 0) {
+		// Показать скрытые карточки
+		hiddenCards.forEach(card => card.classList.remove('hidden'));
+		button.textContent = 'Hide';
+	} else {
+		// Скрыть последние 3 карточки
+		const allCards = document.querySelectorAll('.catalog-card');
+		for (let i = allCards.length - 3; i < allCards.length; i++) {
+			allCards[i].classList.add('hidden');
+		}
+		button.textContent = 'View All';
+	}
+});

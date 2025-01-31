@@ -961,16 +961,25 @@ a:focus {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-top: 11.741vh;
+	padding-bottom: 9vh;
 }
 
-.catalog-subtitle {}
+.catalog-subtitle {
+	font-size: 1rem;
+}
 
-.catalog-heading {}
+.catalog-heading {
+	font-size: 2rem;
+	font-weight: 400;
+	margin-bottom: 100px;
+}
 
 .catalog-cards-container {
 	display: grid;
 	grid-template-columns: repeat(3, auto);
 	gap: 33px;
+	margin-bottom: 80px;
 }
 
 .catalog-card {
@@ -1063,4 +1072,106 @@ a:focus {
 	border-radius: 0 0 40px 0;
 }
 
-.catalog-all-view-button {}
+.catalog-all-view-button {
+	background-color: #2C334F;
+	border: 1px solid var(--border-grey-color);
+	border-radius: 14px;
+	color: var(--base-font-color);
+	padding: 10px 25px;
+	font-size: 1.125rem;
+}
+
+/*Адаптация catalog*/
+@media(max-width:1220px) {
+	.catalog-card-info {
+		font-size: 1.125rem;
+	}
+
+	.catalog-card-buttons>button {
+		font-size: 1.125rem;
+	}
+
+	.catalog-card-specifications {
+		font-size: 0.925rem;
+		grid-template-columns: 1fr;
+		align-self: start;
+	}
+}
+
+@media(max-width:1010px) {
+	.catalog-cards-container {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		gap: 33px;
+		margin-bottom: 80px;
+	}
+
+	.catalog-card-specifications {
+		font-size: 0.925rem;
+		grid-template-columns: repeat(2, 1fr);
+		align-self: start;
+	}
+}
+
+@media(max-width:740px) {
+	.catalog-cards-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 33px;
+		margin-bottom: 80px;
+	}
+
+	.catalog {
+		align-items: stretch;
+	}
+
+	.catalog-card-info {
+		font-size: 1.5rem;
+	}
+
+	.catalog-card-buttons>button {
+		font-size: 1.5rem;
+	}
+
+	.catalog-card-specifications {
+		font-size: 1rem;
+	}
+
+}
+
+@media(max-width:740px) {
+
+	.catalog-card-info {
+		font-size: 1.125rem;
+	}
+
+	.catalog-card-buttons>button {
+		font-size: 1.125rem;
+	}
+
+	.catalog-card-specifications {
+		font-size: 0.925rem;
+	}
+
+	.catalog {
+		padding-top: 5.741vh;
+		padding-bottom: 5vh;
+	}
+
+	.catalog-heading,
+	.catalog-subtitle {
+		text-align: center;
+	}
+
+	.catalog-heading {
+		margin-bottom: 30px;
+	}
+
+	.catalog-cards-container {
+		margin-bottom: 30px;
+	}
+}
+
+.hidden {
+	display: none;
+}
