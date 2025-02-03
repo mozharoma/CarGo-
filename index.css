@@ -1212,7 +1212,7 @@ a:focus {
 	background-color: #3D3E43;
 	display: flex;
 	flex-direction: row;
-	column-gap: 100px;
+	column-gap: 5.208vw;
 	padding-block: 11.741vh;
 	padding-inline: 7.708vw;
 	align-items: center;
@@ -1231,30 +1231,14 @@ a:focus {
 .reviews-subtitle {
 	font-size: 1rem;
 	margin-bottom: 100px;
+	font-weight: 500;
 }
 
 .reviews-text {
 	width: 80%;
 	display: inline-flex;
-}
-
-.reviews-text::before {
-	content: "❝";
-	font-size: 7rem;
-	display: block;
-	position: relative;
-	bottom: 100px;
-	left: 0;
-}
-
-.reviews-text::after {
-	content: "❞";
-	font-size: 7rem;
-	display: block;
-	position: relative;
-	bottom: -90px;
-	right: 0;
-
+	font-weight: 500;
+	margin-bottom: 50px;
 }
 
 .reviews-person {}
@@ -1262,16 +1246,177 @@ a:focus {
 .reviews-rating {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	column-gap: 5px;
+	margin-bottom: 20px;
 }
 
-.reviews-count {}
+.reviews-count {
+	padding-top: 5px;
+	margin-left: 10px;
+}
 
-.reviews-user {}
+.reviews-user {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+}
 
-.user-photo {}
+.user-photo {
+	color: #000000;
+	background-color: #ffffff;
+	border-radius: 50%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	text-align: center;
 
-.user-name {}
+}
+
+.user-name {
+	display: flex;
+	flex-direction: column;
+}
 
 .reviews-img {
 	align-self: center;
+	max-width: 50%;
+	height: auto;
+}
+
+@media (max-width:838px) {
+	.reviews {
+		flex-direction: column;
+		row-gap: 5.604vw;
+	}
+
+	.reviews-img {
+		max-width: 100%;
+	}
+}
+
+/*Стилизация Footer*/
+.footer {
+	display: flex;
+	padding-block: 3.704vh;
+	padding-inline: 7.708vw;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer-contacts>*:not(address:nth-child(4)) {
+	margin-bottom: 10px;
+}
+
+.footer-main-link {}
+
+.footer-address {}
+
+.footer-post {}
+
+.footer-contact-number {}
+
+.footer-nav-bar {
+	display: flex;
+	flex-direction: row;
+	column-gap: 40px;
+	align-items: center;
+}
+
+.footer-best-offers-item,
+.footer-our-cars-item {
+	position: relative;
+}
+
+.footer-nav-best-offers>.footer-best-offers-item:first-child {
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.footer-nav-best-offers>li:not(:nth-child(1), :nth-child(4)) {
+	margin-bottom: 10px;
+}
+
+.footer-nav-link {}
+
+.footer-nav-our-cars>.footer-our-cars-item:first-child {
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+.footer-nav-our-cars>li:not(:nth-child(1), :nth-child(4)) {
+	margin-bottom: 10px;
+}
+
+
+.footer-nav-socials {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: end;
+	row-gap: 10px;
+}
+
+.footer-socials-heading {
+	font-size: 1.2rem;
+}
+
+.footer-nav-social-container {
+	display: flex;
+	column-gap: 15px;
+}
+
+.footer-nav-social-container>img {
+	max-width: 40px;
+}
+
+.footer-best-offers-item:not(:first-child):after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: var(--base-font-color);
+	transition: width 0.3s;
+	line-height: 1;
+}
+
+.footer-best-offers-item:not(:first-child):hover:after {
+	width: 100%;
+	outline: 0;
+}
+
+@media(max-width:1300px) {
+	.footer-nav-bar {
+		display: none;
+	}
+
+	.footer {
+		justify-content: space-around;
+	}
+}
+
+@media(max-width:520px) {
+	.footer {
+		flex-direction: column;
+		row-gap: 30px;
+		justify-content: center;
+	}
+
+	.footer-contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+	.footer-nav-socials{
+		width: 100%;
+		align-items: center;
+	}
+
 }

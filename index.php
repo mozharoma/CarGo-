@@ -185,6 +185,36 @@ require_once 'db.php';
 			</div>
 			<img src="images\Volvo-reviews-car.png" alt="" class="reviews-img">
 		</section>
+		<section class="footer">
+			<div class="footer-contacts">
+				<a class="footer-main-link" href="#"><img src="icons/Logo.svg" alt=""></a>
+				<address class="footer-address">185 Medina Stravenue</address>
+				<address class="footer-post">support@gmail.com</address>
+				<address class="footer-contact-number">(717) 342 759 774</address>
+			</div>
+			<nav class="footer-nav-bar">
+				<ul class="footer-nav-best-offers">
+					<li class="footer-best-offers-item">Best Offers</li>
+					<li class="footer-best-offers-item"><a href="#" class="footer-nav-link">Weefend Getaway</a></li>
+					<li class="footer-best-offers-item"><a href="#" class="footer-nav-link">Family Roadtrip</a></li>
+					<li class="footer-best-offers-item"><a href="#" class="footer-nav-link">Business Travel</a></li>
+				</ul>
+				<ul class="footer-nav-our-cars">
+					<li class="footer-our-cars-item">Our Cars</li>
+					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Luxury Cars</a></li>
+					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Sedans</a></li>
+					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Suv`s</a></li>
+				</ul>
+			</nav>
+			<div class="footer-nav-socials">
+				<span class="footer-socials-heading">Get in touch</span>
+				<div class="footer-nav-social-container">
+					<a class="header-nav-social-link" href="#"><img src="icons\Social-whatsapp-icon.svg" alt="social-whatsapp"></a>
+					<a class="header-nav-social-link" href="#"><img src="icons\Social-telegram-icon.svg" alt="social-telegramm"></a>
+					<a class="header-nav-social-link" href="#"><img src="icons\Social-vk-icon.svg" alt="social-vk"></a>
+				</div>
+			</div>
+		</section>
 	</main>
 	<script src="index.js"></script>
 </body>
