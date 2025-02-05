@@ -20,7 +20,7 @@ require_once 'db.php';
 				<img src="icons\menu_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="burger-button">
 			</button>
 			<ul class="header-nav-list" id="nav-list">
-				<li class="header-nav-item"><a href="#" class="header-nav-link">Sedans</a></li>
+				<li class="header-nav-item"><a href="sedans.php" class="header-nav-link">Sedans</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Suv`s</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Luxury Cars</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Weefend Getaway</a></li>
@@ -202,7 +202,7 @@ require_once 'db.php';
 				<ul class="footer-nav-our-cars">
 					<li class="footer-our-cars-item">Our Cars</li>
 					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Luxury Cars</a></li>
-					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Sedans</a></li>
+					<li class="footer-our-cars-item"><a href="sedans.php" class="footer-nav-link">Sedans</a></li>
 					<li class="footer-our-cars-item"><a href="#" class="footer-nav-link">Suv`s</a></li>
 				</ul>
 			</nav>
