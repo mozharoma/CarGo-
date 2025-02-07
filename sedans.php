@@ -57,7 +57,7 @@ require_once 'db.php';
 					<h3 class="card-heading">Economical</h3>
 					<p class="card-info">Many sedans have good fuel efficiency compared to SUVs and large cars, which
 						reduces operating costs..</p>
-					<img src="icons/Car.svg" alt="">
+					<img src="icons/Money.svg" alt="">
 				</div>
 				<div class="advantages-card">
 					<h3 class="card-heading">Style and prestige</h3>
