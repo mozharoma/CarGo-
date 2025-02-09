@@ -6,7 +6,7 @@ require_once 'db.php';
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="sedans.css">
+	<link rel="stylesheet" href="suvs.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
@@ -32,8 +32,8 @@ require_once 'db.php';
 	</header>
 	<main class="main">
 		<section class="hero">
-			<h1 class="hero-title">Sedans</h1>
-			<p class="hero-subtitle">Our choice in sedans</p>
+			<h1 class="hero-title">Suv`s</h1>
+			<p class="hero-subtitle">Our choice in suv`s</p>
 		</section>
 		<section class="advantages">
 			<h2 class="advantages-heading">Advantages of the type</h2>
@@ -65,13 +65,13 @@ require_once 'db.php';
 				</div>
 			</div>
 		</section>
-		<section class="catalog sedans">
-			<h4 class="catalog-heading sedans-heading">Our Sedans Car</h4>
-			<div class="catalog-cards-container sedans-catalog-container">
+		<section class="catalog suvs">
+			<h4 class="catalog-heading suvs-heading">Our Sedans Car</h4>
+			<div class="catalog-cards-container suvs-catalog-container">
 				<?php
 				$sql = "SELECT id, car_mark, car_day_price, car_type, car_seats, car_dours, car_climate, car_image 
 				FROM cars 
-				WHERE car_type = 'Sedan'";
+				WHERE car_type = 'Suv'";
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 					while ($row = $result->fetch_assoc()) {

@@ -21,8 +21,8 @@ require_once 'db.php';
 			</button>
 			<ul class="header-nav-list" id="nav-list">
 				<li class="header-nav-item"><a href="sedans.php" class="header-nav-link">Sedans</a></li>
-				<li class="header-nav-item"><a href="#" class="header-nav-link">Suv`s</a></li>
-				<li class="header-nav-item"><a href="#" class="header-nav-link">Luxury Cars</a></li>
+				<li class="header-nav-item"><a href="suvs.php" class="header-nav-link">Suv`s</a></li>
+				<li class="header-nav-item"><a href="luxury.php" class="header-nav-link">Luxury Cars</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Weefend Getaway</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Family Roadtrip</a></li>
 				<li class="header-nav-item"><a href="#" class="header-nav-link">Business Travel</a></li>
