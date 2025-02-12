@@ -6,7 +6,7 @@ require_once 'db.php';
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="luxury.css">
+	<link rel="stylesheet" href="weekend-gateaway.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
@@ -31,33 +31,37 @@ require_once 'db.php';
 		</nav>
 	</header>
 	<main class="main">
-		<section class="hero">
-			<h1 class="hero-title">Luxury cars</h1>
-			<p class="hero-subtitle">Our choice in Luxury cars</p>
+		<section class="present">
+			<div class="present-info">
+				<h1 class="present-heading">Weekend Gateaway</h1>
+				<p class="present-subtitle">Planning a weekend escape? Whether you're dreaming of a serene countryside retreat, a thrilling mountain drive, or a coastal road trip, we`ve got the perfect ride for you. At CarGo!, we make sure your journey is as exciting as your destination.</p>
+				<a href="#" class="present-anchor-link">Our Choice for Weekend</a>
+			</div>
+			<img class="present-image" src="images\Dodge-Durango-SRT-PNG-Pic-Background.png" alt="">
 		</section>
-		<section class="advantages">
-			<h2 class="advantages-heading">Advantages of the type</h2>
-			<div class="advantages-cards-container">
-				<div class="advantages-card">
+		<section class="weekend-adv">
+			<h2 class="advantages-heading weekend-adv-heading">Advantages of the type</h2>
+			<div class="advantages-cards-container weekend-adv-container">
+				<div class="advantages-card weekend-adv-card">
 					<h3 class="card-heading">Comfort</h3>
 					<p class="card-info">Sedans tend to offer a more spacious interior and comfortable seats, making
 						trips comfortable for all passengers.</p>
 					<img src="icons/Car.svg" alt="">
 				</div>
-				<div class="advantages-card">
+				<div class="advantages-card weekend-adv-card">
 					<h3 class="card-heading">Safety</h3>
 					<p class="card-info">Sedans often have a more rigid body structure, which can provide additional
 						protection in a collision.
 					</p>
 					<img src="icons/Safety.svg" alt="">
 				</div>
-				<div class="advantages-card">
+				<div class="advantages-card weekend-adv-card">
 					<h3 class="card-heading">Economical</h3>
 					<p class="card-info">Many sedans have good fuel efficiency compared to SUVs and large cars, which
 						reduces operating costs..</p>
 					<img src="icons/Money.svg" alt="">
 				</div>
-				<div class="advantages-card">
+				<div class="advantages-card weekend-adv-card">
 					<h3 class="card-heading">Style and prestige</h3>
 					<p class="card-info">Many sedans have an elegant and modern design that can create a more
 						prestigious image.</p>
@@ -65,13 +69,53 @@ require_once 'db.php';
 				</div>
 			</div>
 		</section>
-		<section class="catalog suvs">
-			<h4 class="catalog-heading suvs-heading">Our Sedans Car</h4>
-			<div class="catalog-cards-container suvs-catalog-container">
+		<section class="best-car">
+			<h4 class="best-car-haeding">Your best car for Weekend!</h4>
+			<div class="best-car-container">
+				<div class="best-car-card">
+					<?php
+					$sql = "SELECT id, car_mark, car_day_price, car_type, car_seats, car_dours, car_climate, car_image 
+					FROM cars WHERE car_day_price ='91$'";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) {
+						while ($row = $result->fetch_assoc()) {
+							?>
+							<?php
+							echo '<div class="catalog-card ' . ($row["id"] >= count($row) - 1 ? 'hidden' : '') . '">';
+							echo '<img src="' . $row["car_image"] . '" alt="' . $row["car_mark"] . '" class="catalog-card-image">';
+							echo '<div class="catalog-card-info">';
+							echo '<p class="catalog-card-name">' . $row["car_mark"] . '</p>';
+							echo '<p class="catalog-card-price">Starting at ' . $row["car_day_price"] . '/ Day</p>';
+							echo '<div class="catalog-card-specifications">';
+							echo '<div class="catalog-card-type"> <img src="icons\Car.svg" alt=""> ' . $row["car_type"] . '</div>';
+							echo '<div class="catalog-card-type"> <img src="icons\Seats.svg" alt=""> ' . $row["car_seats"] . ' seats</div>';
+							echo '<div class="catalog-card-type"> <img src="icons\Doors.svg" alt=""> ' . $row["car_dours"] . ' doors</div>';
+							echo '<div class="catalog-card-type"> <img src="icons\Snowflake.svg" alt=""> ' . $row["car_climate"] . '</div>';
+							echo '</div>';
+							echo '</div>';
+							echo '<div class="catalog-card-buttons">';
+							echo '<button class="catalog-card-details">Details</button>';
+							echo '<button class="catalog-card-book">Book</button>';
+							echo '<input/ value="' . $row["id"] . '" type="hidden">';
+							echo '</div>';
+							echo '</div>';
+						}
+					}
+					?>
+				</div>
+				<div class="best-car-info">
+					<h5 class="best-car-info-heading">Dodge Durango</h5>
+					<p class="best-car-info-text">The Dodge Durango combines rugged capability with premium comfort, making it the perfect choice for families, adventurers, and anyone who demands more from their ride. Whether you're heading on a road trip, tackling the outdoors, or just cruising around town, the Durango is ready to take you there in style. Book now and experience the power of Dodge!This text highlights the key features of the Dodge Durango in a concise and engaging way, perfect for a car rental website. Let me know if you'd like to adjust anything!</p>
+				</div>
+			</div>
+		</section>
+		<section class="catalog">
+			<h4 class="catalog-heading">Best cars for Weekend!</h4>
+			<div class="catalog-cards-container">
 				<?php
 				$sql = "SELECT id, car_mark, car_day_price, car_type, car_seats, car_dours, car_climate, car_image 
 				FROM cars 
-				WHERE car_luxury = 'Luxury'";
+				WHERE car_type = 'Suv'";
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 					while ($row = $result->fetch_assoc()) {
@@ -131,7 +175,7 @@ require_once 'db.php';
 			</div>
 		</section>
 	</main>
-	<script src="sedans.js"></script>
+	<script src="index.js"></script>
 </body>
 
 </html>
