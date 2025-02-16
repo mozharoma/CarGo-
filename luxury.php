@@ -24,8 +24,6 @@ require_once 'db.php';
 				<li class="header-nav-item"><a href="suvs.php" class="header-nav-link">Suv`s</a></li>
 				<li class="header-nav-item"><a href="luxury.php" class="header-nav-link">Luxury Cars</a></li>
 				<li class="header-nav-item"><a href="weekend-gateaway.php" class="header-nav-link">Weefend Getaway</a></li>
-				<li class="header-nav-item"><a href="#" class="header-nav-link">Family Roadtrip</a></li>
-				<li class="header-nav-item"><a href="#" class="header-nav-link">Business Travel</a></li>
 			</ul>
 			<a href="#" class="header-profile-link"><img src="icons\person.svg" alt="Profile-link-button"></a>
 		</nav>
